@@ -1,0 +1,9 @@
+server:
+  port: 8100
+spring:
+  application:
+    name: dog-service
+  flyway:
+    url: ${spring.datasource.url}
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
