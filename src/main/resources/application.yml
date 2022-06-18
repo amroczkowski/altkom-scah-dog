@@ -1,5 +1,3 @@
-server:
-  port: 8100
 spring:
   application:
     name: dog-service
@@ -12,3 +10,24 @@ spring:
     url: ${spring.datasource.url}
     user: ${spring.datasource.username}
     password: ${spring.datasource.password}
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info
+---
+server:
+  port: 8100
+spring:
+  config.activate.on-profile: default
+---
+server:
+  port: 8101
+spring:
+  config.activate.on-profile: instance2
